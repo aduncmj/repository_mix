@@ -1,54 +1,47 @@
-<!-- TOC -->
-
-- [# 隐藏文件](#%e9%9a%90%e8%97%8f%e6%96%87%e4%bb%b6)
-- [# 相对路径与绝对路径](#%e7%9b%b8%e5%af%b9%e8%b7%af%e5%be%84%e4%b8%8e%e7%bb%9d%e5%af%b9%e8%b7%af%e5%be%84)
-- [# Linux常用命令](#linux%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4)
-- [ls（list，列表）](#lslist%e5%88%97%e8%a1%a8)
-- [cd（change directory，更改目录）](#cdchange-directory%e6%9b%b4%e6%94%b9%e7%9b%ae%e5%bd%95)
-- [pwd（print work directory，打印工作目录）](#pwdprint-work-directory%e6%89%93%e5%8d%b0%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95)
-- [mkdir（make directory，创建文件夹）](#mkdirmake-directory%e5%88%9b%e5%bb%ba%e6%96%87%e4%bb%b6%e5%a4%b9)
-- [mv（move，移动）](#mvmove%e7%a7%bb%e5%8a%a8)
-- [touch](#touch)
-- [cp（copy，复制）](#cpcopy%e5%a4%8d%e5%88%b6)
-- [rm（remove，去除，删除）](#rmremove%e5%8e%bb%e9%99%a4%e5%88%a0%e9%99%a4)
-- [cat](#cat)
-- [rmdir（remove directory，删除文件夹）](#rmdirremove-directory%e5%88%a0%e9%99%a4%e6%96%87%e4%bb%b6%e5%a4%b9)
-- [ln（link，连接文件）](#lnlink%e8%bf%9e%e6%8e%a5%e6%96%87%e4%bb%b6)
-- [man](#man)
-- [apt-get](#apt-get)
-- [# 编辑器vi的使用](#%e7%bc%96%e8%be%91%e5%99%a8vi%e7%9a%84%e4%bd%bf%e7%94%a8)
-- [vi基础使用](#vi%e5%9f%ba%e7%a1%80%e4%bd%bf%e7%94%a8)
-- [vi的高级使用](#vi%e7%9a%84%e9%ab%98%e7%ba%a7%e4%bd%bf%e7%94%a8)
-	- [查找](#%e6%9f%a5%e6%89%be)
-	- [快速切换行](#%e5%bf%ab%e9%80%9f%e5%88%87%e6%8d%a2%e8%a1%8c)
-	- [设置显示行号](#%e8%ae%be%e7%bd%ae%e6%98%be%e7%a4%ba%e8%a1%8c%e5%8f%b7)
-	- [行删除](#%e8%a1%8c%e5%88%a0%e9%99%a4)
-	- [行复制粘贴](#%e8%a1%8c%e5%a4%8d%e5%88%b6%e7%b2%98%e8%b4%b4)
-- [# linux中权限表示&管理](#linux%e4%b8%ad%e6%9d%83%e9%99%90%e8%a1%a8%e7%a4%ba%e7%ae%a1%e7%90%86)
-- [普通用户与特权用户](#%e6%99%ae%e9%80%9a%e7%94%a8%e6%88%b7%e4%b8%8e%e7%89%b9%e6%9d%83%e7%94%a8%e6%88%b7)
-- [rwx与权限表示](#rwx%e4%b8%8e%e6%9d%83%e9%99%90%e8%a1%a8%e7%a4%ba)
-- [# 进阶](#%e8%bf%9b%e9%98%b6)
-- [find](#find)
-- [grep](#grep)
-- [which和whereis](#which%e5%92%8cwhereis)
-- [uname](#uname)
-- [开机和关机](#%e5%bc%80%e6%9c%ba%e5%92%8c%e5%85%b3%e6%9c%ba)
-- [tree/lstree](#treelstree)
-- [mount/umount](#mountumount)
-- [磁盘空间相关](#%e7%a3%81%e7%9b%98%e7%a9%ba%e9%97%b4%e7%9b%b8%e5%85%b3)
-- [用户管理](#%e7%94%a8%e6%88%b7%e7%ae%a1%e7%90%86)
-- [权限管理](#%e6%9d%83%e9%99%90%e7%ae%a1%e7%90%86)
-- [文件打包压缩与解压缩](#%e6%96%87%e4%bb%b6%e6%89%93%e5%8c%85%e5%8e%8b%e7%bc%a9%e4%b8%8e%e8%a7%a3%e5%8e%8b%e7%bc%a9)
-- [sed和awk](#sed%e5%92%8cawk)
-- [格式化文件系统](#%e6%a0%bc%e5%bc%8f%e5%8c%96%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f)
-
-<!-- /TOC -->
 
 
 
 
+# Linux文件系统和目录结构
 
-# Linux的目录结构
+## 文件系统简介
+
+在Linux操作系统中，所有被操作系统管理的资源，例如网络接口卡、磁盘驱动器、打印机、输入输出设备、普通文件或是目录都被看作是一个文件。
+
+也就是说在LINUX系统中有一个重要的概念：一切都是文件。其实这是UNIX哲学的一个体现，而Linux是重写UNIX而来，所以这个概念也就传承了下来。在UNIX系统中，把一切资源都看作是文件，包括硬件设备。UNIX系统把每个硬件都看成是一个文件，通常称为设备文件，这样用户就可以用读写文件的方式实现对硬件的访问。
+
+
+
+## 目录结构及简介
+
+为了使不同 Linux 发行版本的目录结构保持一致性，Filesystem Hierarchy Standard (FHS) 规定了 Linux 的目录结构。最基础的三个目录如下：
+
+- / (root, 根目录)
+- /usr (unix software resource)：所有系统默认软件都会安装到这个目录；
+- /var (variable)：存放系统或程序运行过程中的数据文件。
+
+![](images/2020-01-06_220447.png)
+
+**常见目录说明：**
+/bin： 存放二进制可执行文件(ls,cat,mkdir等)，常用命令一般都在这里；
+/etc： 存放系统管理和配置文件；
+/home： 存放所有用户文件的根目录，是用户主目录的基点，比如用户user的主目录就是/home/user，可以
+用~user表示；
+/usr ： 用于存放系统应用程序；
+/opt： 额外安装的可选应用程序包所放置的位置。一般情况下，我们可以把tomcat等都安装到这里；
+/proc： 虚拟文件系统目录，是系统内存的映射。可直接访问这个目录来获取系统信息；
+/root： 超级用户（系统管理员）的主目录（特权阶级^o^）；
+/sbin: 存放二进制可执行文件，只有root才能访问。这里存放的是系统管理员使用的系统级别的管理命令和程
+序。如ifconfig等；
+/dev： 用于存放设备文件；
+/mnt： 系统管理员安装临时文件系统的安装点，系统提供这个目录是让用户临时挂载其他的文件系统；
+/boot： 存放用于系统引导时使用的各种文件；
+/lib ： 存放着和系统运行相关的库文件 ；
+/tmp： 用于存放各种临时文件，是公用的临时文件存储点；
+/var： 用于存放运行时需要改变数据的文件，也是某些大文件的溢出区，比方说各种服务的日志文件（系统启
+动日志等。）等；
+/lost+found： 这个目录平时是空的，系统非正常关机而留下“无家可归”的文件（windows下叫什么.chk）就在
+这里
 
 
 
@@ -388,8 +381,8 @@ du -h	列出文件或文件夹的大小
 du -h 文件名，可以列出这个文件有多大，列出方式是以人比较好看懂的方式。不像 ls -l列出的都是以字节为单位。
 
 
-	
-	
+​	
+​	
 
 
 
