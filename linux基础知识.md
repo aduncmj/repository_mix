@@ -127,6 +127,12 @@ Linux中隐藏文件特点是文件名以.开头，跟文件属性无关。在Li
 
 
 
+## 关于挂载
+
+![摘自 鸟哥的Linux私房菜 基础篇.第四版](images/2020-01-09_155532.png)
+
+![摘自 鸟哥的Linux私房菜 基础篇.第四版](images/2020-01-09_155825.png)
+
 
 
 # 相对路径与绝对路径
@@ -279,10 +285,9 @@ linux操作系统的发行版，内核版本，定制性，造成了linux中软�
 ## ifconfig  显示或设置网络设备
 
 - ifconfig  显示网络设备
-
 - ifconfig eth0 up 启用eth0网卡
-
 - ifconfig eth0 down  停用eth0网卡
+- ifconfig eth0 192.168.1.100 临时指定私有ip
 
 ## ping   探测网络是否通畅
 
@@ -291,6 +296,13 @@ linux操作系统的发行版，内核版本，定制性，造成了linux中软�
 ## netstat 查看网络端口
 
 - netstat -an | grep 3306 查询3306端口占用情况
+
+## 网络启闭指令
+
+`/etc/init.d/network restart` 这个 script 最重要！因为可以一口气重新启动整个网络的参
+数！ 他会主动的去读取所有的网络配置文件，所以可以很快的恢复系统默认的参数值。
+
+`ifup eth0 (ifdown eth0)` 或ifconfig eth0 up（down）启动或者是关闭某张网络接口。
 
 
 
@@ -393,8 +405,7 @@ Windows中有普通用户和特权用户，特权用户是Administrator，普通
 特权用户是系统的管理员，对系统内所有文件具有操作权限。每个普通用户只能处理自己的文件，不能访问其他用户的文件，更不能随意处理操作系统的文件。
 Linux中也有普通用户和特权用户的区别。特权用户就是root用户。普通用户权限受到限制，譬如说普通用户不能cd /root，普通用户不能使用apt-get install 来装软件。	
 
-**可以使用su 用户名来在不同用户间切换。譬如要从普通
-用户切换到root，可以su root，然后输入root的密码即可转入root用户。从root要切换到普通用户gec，则su gec即可。**
+**可以使用su 用户名来在不同用户间切换。譬如要从普通用户切换到root，可以su root，然后输入root的密码即可转入root用户。从root要切换到普通用户gec，则su gec即可。**
 
 
 
