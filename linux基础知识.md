@@ -280,6 +280,39 @@ linux操作系统的发行版，内核版本，定制性，造成了linux中软�
 
 
 
+## ————————————————————————
+
+
+
+## scp（secure copy）
+
+Linux scp 命令用于 Linux 之间复制文件和目录。
+
+scp 是 secure copy 的缩写, scp 是 linux 系统下基于 ssh 登陆进行安全的远程文件拷贝命令。
+
+scp 是加密的，[rcp](https://www.runoob.com/linux/linux-comm-rcp.html) 是不加密的，scp 是 rcp 的加强版。
+
+**拷贝文件夹**
+
+把当前文件夹tempA拷贝到 目标服务器10.127.40.25 服务器的 /tmp/wang/文件夹下
+`scp -r /tmp/tempA/ wasadmin@10.127.40.25:/tmp/wang/`
+其中**wasadmin是目标服务器的用户名**，执行命令提示输入密码，然后输入密码即可
+
+> 目标服务器拷贝到本地，只需调换顺序即可
+
+**拷贝文件**
+把当前文件tempA.txt拷贝到 目标服务器10.127.40.25 服务器的 /tmp/wang/文件夹下
+`scp  /tmp/tempA.txt wasadmin@10.127.40.25:/tmp/wang/`
+其中**wasadmin是目标服务器的用户名**，执行命令提示输入密码，然后输入密码即可
+
+
+
+
+
+
+
+
+
 # 网络通讯命令
 
 ## ifconfig  显示或设置网络设备
