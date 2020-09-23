@@ -25,10 +25,10 @@ xzm@ubuntu:~$  sudo
 
 这样输入当前管理员用户密码就可以得到超级用户的权限。但默认的情况下5分钟root权限就失效了。
 
-(2)sudo -i
+(2)sudo -i  或sudo su root
 
 ```
-xzm@ubuntu:~$  sudo -i
+xzm@ubuntu:~$ sudo -i 或 sudo su root
 ```
 
 通过这种方法输入当前管理员用户的密码就可以进到root用户。
