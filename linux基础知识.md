@@ -368,7 +368,9 @@ scp 是加密的，[rcp](https://www.runoob.com/linux/linux-comm-rcp.html) 是�
 
 > 依次为：内核名称(类别)，主机名，内核版本号，内核版本，内核编译日期，硬件名，处理器类型，硬件平台类型，操作系统名称
 
+## lsb_release查看系统信息
 
+- lsb_release -a
 
 ## 开机和关机
 
