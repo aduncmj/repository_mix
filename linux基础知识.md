@@ -99,7 +99,7 @@ Linux中隐藏文件特点是文件名以.开头，跟文件属性无关。在Li
 - /usr (unix software resource)：所有系统默认软件都会安装到这个目录；
 - /var (variable)：存放系统或程序运行过程中的数据文件。
 
-![](images/2020-01-06_220447.png)
+![](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224422.png)
 
 **常见目录说明：**
 /bin： 存放二进制可执行文件(ls,cat,mkdir等)，常用命令一般都在这里；
@@ -126,9 +126,9 @@ Linux中隐藏文件特点是文件名以.开头，跟文件属性无关。在Li
 
 ## 关于挂载
 
-![摘自 鸟哥的Linux私房菜 基础篇.第四版](images/2020-01-09_155532.png)
+![摘自 鸟哥的Linux私房菜 基础篇.第四版](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224423.png)
 
-![摘自 鸟哥的Linux私房菜 基础篇.第四版](images/2020-01-09_155825.png)
+![摘自 鸟哥的Linux私房菜 基础篇.第四版](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224424.png)
 
 
 
