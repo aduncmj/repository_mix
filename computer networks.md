@@ -6,7 +6,7 @@
 
 > 处理时延、排队时延、发送时延（传输时延）、传播时延
 
-![计算机网络(第7版)-谢希仁](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224759.png)
+
 
 
 
@@ -63,13 +63,13 @@ TCP/IP提供点对点的链接机制，将数据应该如何封装、定址、�
 
 **UDP报文段结构：**
 
-![UDP报文段结构，摘自 计算机网络(第7版)-谢希仁](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224800.png)
+![image-20201230222841103](C:\Users\aduncmj\AppData\Roaming\Typora\typora-user-images\image-20201230222841103.png)
 
 
 
 **TCP报文段结构**
 
-![TCP报文段结构，摘自 计算机网络(第7版)-谢希仁](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224801.png)
+![摘自 计算机网络(第7版)-谢希仁](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224800.png)
 
 
 
@@ -81,7 +81,9 @@ TCP/IP提供点对点的链接机制，将数据应该如何封装、定址、�
 
 **IP数据报格式：**
 
-![摘自 计算机网络(第7版)-谢希仁](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224802.png)
+![TCP报文段结构，摘自 计算机网络(第7版)-谢希仁](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224801.png)
+
+
 
 
 
@@ -93,7 +95,9 @@ TCP/IP提供点对点的链接机制，将数据应该如何封装、定址、�
 
 **以太网MAC帧格式**
 
-![摘自 计算机网络(第7版)-谢希仁](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224803.png)
+![摘自 计算机网络(第7版)-谢希仁](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224802.png)
+
+
 
 ### 物理层
 
@@ -103,7 +107,9 @@ TCP/IP提供点对点的链接机制，将数据应该如何封装、定址、�
 
 ### 数据传输经过的各层协议过程
 
-![](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224804.png)
+![摘自 计算机网络(第7版)-谢希仁](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224803.png)
+
+
 
 以太网驱动程序首先根据以太网首部中的“上层协议”字段确定该数据帧的有效载荷（payload，指除去协议首部之外实际传输的数据）是IP、ARP  还是RARP 协议的数据报，然后交给相应的协议处理。假如是IP 数据报，IP 协议再根据IP  首部中的“上层协议”字段确定该数据报的有效载荷是TCP、UDP、ICMP 还是IGMP，然后交给相应的协议处理。假如是TCP  段或UDP段，TCP 或UDP 协议再根据TCP 首部或UDP 首部的“端口号”字段确定应该将应用层数据交给哪个用户进程。IP  地址是标识网络中不同主机的地址，而端口号就是同一台主机上标识不同进程的地址，IP 地址和端口号合起来标识网络中唯一的进程。
 
@@ -127,7 +133,9 @@ TCP/IP提供点对点的链接机制，将数据应该如何封装、定址、�
 - 将一个物理的LAN在逻辑上划分成多个广播域的通信技术
 - 将广播报文限制在一个VLAN内
 
-![](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224805.png)
+![](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224804.png)
+
+
 
 > 本例中，原本属于同一广播域的主机被划分到了两个VLAN中，即，VLAN1和VLAN2。VLAN内部的主机可以直接在二层互相通信，VLAN1和VLAN2之间的主机无法直接实现二层通信。
 
@@ -145,7 +153,9 @@ TCP/IP提供点对点的链接机制，将数据应该如何封装、定址、�
   - 支持802.1Q协议的交换机既可以收发有标记帧，也可以收发无标记帧
   - 交换机内部的数据包一律携带Tag
 
-![](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224806.png)
+![](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224805.png)
+
+
 
 - IEEE 802.1Q
   - IEEE 802.1Q是虚拟桥接局域网的正式标准，对Ethernet帧格式进行了修改，在源MAC地址字段和协议类型字段之间加入4字节的802.1Q Tag。
@@ -177,7 +187,9 @@ TCP/IP提供点对点的链接机制，将数据应该如何封装、定址、�
 
 在主板上插入适配器时，还必须把管理该适配器的设备驱动程序安装在计算机的操作系统中。这个驱动程序以后就会告诉适配器，应当从存储器的什么位置上把多长的数据块发送到局域网，或者应当在存储器的什么位置上把局域网传送过来的数据块存储下来。
 
-![](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224807.jpg)
+![](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224806.png)
+
+
 
 #### **网卡的组成**
 
@@ -187,9 +199,7 @@ TCP/IP提供点对点的链接机制，将数据应该如何封装、定址、�
 
 图1：MAC和PHY集成在一颗芯片的以太网卡
 
-
-
-![](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224809.png)
+![](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224807.jpg)
 
 图2：MAC和PHY分开的以太网卡
 
@@ -248,7 +258,7 @@ MII即媒体独立接口,它是IEEE-802.3定义的以太网行业标准."媒体�
 
 **GMII**是千兆网的MII接口,这个也有相应的RGMII接口,表示简化了的GMII接口,GMII采用8位接口数据,工作时钟125MHz,因此传输速率可达1000Mbps.同时兼容MII所规定的10/100 Mbps工作方式.
 
-
+![](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224809.png)
 
 > MII接口详细信息及PHY寄存器信息参考：[Ethernet（以太网）之一 详解 MAC、MII、PHY](https://blog.csdn.net/ZCShouCSDN/article/details/80090802)
 
@@ -270,7 +280,7 @@ PHY在发送数据的时候,收到MAC过来的数据(**对PHY来说,没有帧的
 
 具体传输过程为,发送数据时,网卡首先侦听介质上是否有载波(载波由电压指示),如果有,则认为其他站点正在传送信息,继续侦听介质.一旦通信介质在一定时间段内(称为帧间缝隙IFG=9.6微秒)是安静的,即没有被其他站点占用,则开始进行帧数据发送,同时继续侦听通信介质,以检测冲突.在发送数据期间,如果检测到冲突,则立即停止该次发送,并向介质发送一个“阻塞”信号,告知其他站点已经发生冲突,从而丢弃那些可能一直在接收的受到损坏的帧数据,并等待一段随机时间(CSMA/CD确定等待时间的算法是二进制指数退避算法).在等待一段随机时间后,再进行新的发送.如果重传多次后(大于16次)仍发生冲突,就放弃发送.接收时,网卡浏览介质上传输的每个帧,如果其长度小于64字节,则认为是冲突碎片.如果接收到的帧不是冲突碎片且目的地址是本地地址,则对帧进行完整性校验,如果帧长度大于1518字节(称为超长帧,可能由错误的LAN驱动程序或干扰造成)或未能通过CRC校验,则认为该帧发生了畸变.通过校验的帧被认为是有效的,网卡将它接收下来进行本地处理.
 
-![](https://gitee.com/aduncmj/PictureBed/raw/master/images/20201213224813.bmp)
+
 
 
 
